@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --pastel-lavender: #F7F4FC;
+  --pastel-offwhite: #FFFCF8;
+  --pastel-purple: #B8A5D6;
+  --pastel-pink: #F2C6D5;
+  --pastel-blue: #B9D7EA;
+  --pastel-green: #C9E4D4;
+  --pastel-navy: #34354A;
+  --pastel-white: #FFFFFF;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #FFFCF8;
+    color: #34354A;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: #34354A;
+  }
+}
+
+/* Subtle pastel architectural grid backdrop */
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(to right, rgba(184, 165, 214, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(184, 165, 214, 0.14) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Clean pastel academic dashboard cards */
+.glass-card {
+  background-color: #FFFFFF;
+  border: 1px solid #EAE4F3;
+  box-shadow: 0 10px 30px -16px rgba(52, 53, 74, 0.10), 0 2px 6px -2px rgba(184, 165, 214, 0.12);
+}
+
+.glass-card-hover {
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-3px);
+  border-color: #B8A5D6;
+  box-shadow: 0 18px 36px -18px rgba(120, 102, 160, 0.22), 0 4px 10px -4px rgba(52, 53, 74, 0.06);
+}
+
+/* Subtle power flow pulse animation */
+@keyframes pulse-line {
+  0% {
+    stroke-dashoffset: 160;
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.35;
+  }
+}
+
+.animate-power-flow {
+  stroke-dasharray: 20 140;
+  animation: pulse-line 4.5s linear infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+/* Soft pastel scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7F4FC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D3C6E8;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B8A5D6;
+}
