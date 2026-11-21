@@ -50,10 +50,6 @@ export default function Footer() {
                   Category: <strong className="text-[#34354A]">Academic Project</strong>
                 </span>
               </div>
-              <p className="text-xs text-[#6B6D85] pt-1">
-                Machine Learning Lab Project · Verified against{' '}
-                <code className="font-mono text-[#5E4E84]">ds42222_(3).ipynb</code>
-              </p>
             </div>
           </div>
 
