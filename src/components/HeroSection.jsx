@@ -64,11 +64,6 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: Title, Intro, CTAs */}
           <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#B8A5D6]/60 bg-white/90 px-4 py-1.5 text-xs font-semibold text-[#5E4E84] shadow-xs">
-              <span className="h-2 w-2 rounded-full bg-[#6EA988]" />
-              <span>DS422 (ML-I) · University Machine Learning Lab Project</span>
-            </div>
-
             <div className="space-y-3">
               <h1 className="text-4xl sm:text-5xl lg:text-[3.4rem] font-extrabold tracking-tight text-[#34354A] leading-[1.08]">
                 Electricity Demand{' '}
