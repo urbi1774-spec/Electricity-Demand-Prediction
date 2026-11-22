@@ -32,7 +32,7 @@ const STAT_CARDS = [
     icon: Filter,
     label: 'Cleaned Dataset Size',
     value: `${DATASET_INFO.cleanedRows.toLocaleString()} × ${DATASET_INFO.modelingFeatureCount}`,
-    sub: '81,960 consecutive 1-hr rows · 12 ML features',
+    sub: '73,976 strictly continuous 1-hr rows · 12 ML features',
     accent: 'text-[#3F7B5A] bg-[#EFF8F2] border-[#C9E4D4]',
   },
   {
@@ -45,7 +45,7 @@ const STAT_CARDS = [
   {
     icon: Split,
     label: 'Chronological Split (80/20)',
-    value: '65,568 / 16,392',
+    value: '59,180 / 14,796',
     sub: 'Train / Test rows · zero random shuffle',
     accent: 'text-[#6A5894] bg-[#F7F4FC] border-[#B8A5D6]',
   },
@@ -165,41 +165,41 @@ export default function DatasetSection() {
               </div>
               <p className="text-sm text-[#585A73] leading-relaxed">
                 <strong className="text-[#34354A]">Source:</strong> {DATASET_INFO.sourceLabel}. No external
-                fabricated URL is claimed; all figures are derived directly from the local project file{' '}
+                fabricated URL is claimed; all statistics and evaluations are computed directly from{' '}
                 <code className="font-mono text-[#625288] bg-[#F7F4FC] px-1.5 py-0.5 rounded text-xs">
                   {DATASET_INFO.filename}
                 </code>{' '}
-                and notebook{' '}
-                <code className="font-mono text-[#625288] bg-[#F7F4FC] px-1.5 py-0.5 rounded text-xs">
-                  ds42222_(3).ipynb
-                </code>
-                .
+                and the executed project Jupyter Notebook.
               </p>
             </div>
 
             <div className="rounded-xl bg-[#FFFCF8] border border-[#EAE4F3] p-4 space-y-2.5">
               <p className="text-xs font-semibold uppercase tracking-wider text-[#6B6D85]">
-                Row Filtering Breakdown (1-Hour Alignment)
+                Row Filtering Breakdown (Strict 1-Hour Continuity)
               </p>
               <div className="flex items-center justify-between text-xs">
                 <span className="text-[#585A73]">Raw CSV Rows</span>
                 <span className="font-mono font-semibold text-[#34354A]">94,934</span>
               </div>
               <div className="flex items-center justify-between text-xs">
-                <span className="text-[#585A73]">Non-1hr Intervals Removed (30m, 2h, 3h+)</span>
+                <span className="text-[#585A73]">Non-1hr Forward Intervals Removed</span>
                 <span className="font-mono font-medium text-[#A25672]">−12,974</span>
+              </div>
+              <div className="flex items-center justify-between text-xs">
+                <span className="text-[#585A73]">Prior Multi-Hour Gaps Removed (time_diff ≠ 1h)</span>
+                <span className="font-mono font-medium text-[#A25672]">−7,984</span>
               </div>
               <div className="border-t border-[#EAE4F3] pt-2.5 flex items-center justify-between text-sm">
                 <span className="font-semibold text-[#3B7354]">Final Cleaned Hourly Dataset</span>
-                <span className="font-mono font-bold text-[#3B7354]">81,960</span>
+                <span className="font-mono font-bold text-[#3B7354]">73,976</span>
               </div>
             </div>
 
             {/* Chronological Split visual bar */}
             <div>
               <div className="flex justify-between text-xs font-mono text-[#585A73] mb-1.5">
-                <span>Train: 65,568 (80%)</span>
-                <span>Test: 16,392 (20%)</span>
+                <span>Train: 59,180 (80%)</span>
+                <span>Test: 14,796 (20%)</span>
               </div>
               <div className="h-3 w-full rounded-full overflow-hidden flex bg-[#F2EEF9] border border-[#E5DDF2]">
                 <div className="w-[80%] bg-[#B8A5D6]" title="Training set (80%)" />

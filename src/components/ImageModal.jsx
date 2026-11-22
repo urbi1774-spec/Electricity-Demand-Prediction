@@ -29,7 +29,7 @@ export default function ImageModal({ image, onClose }) {
           <div>
             <h3 className="text-sm sm:text-base font-bold text-[#34354A]">{image.title}</h3>
             <p className="text-[11px] font-mono text-[#6B6D85]">
-              Original exported output from ds42222 (1).ipynb
+              Exported Matplotlib / Seaborn output from the project notebook
             </p>
           </div>
           <button

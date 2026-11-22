@@ -18,36 +18,36 @@ const RF_DATA = MODEL_COMPARISON.find((m) => m.id === 'rf');
 const KPI_ITEMS = [
   {
     label: 'Accuracy',
-    value: '95.67%',
-    exact: '0.956686',
+    value: '95.47%',
+    exact: '0.954717',
     bg: 'bg-[#EFF8F2] border-[#C9E4D4]',
     valueColor: 'text-[#316849]',
   },
   {
     label: 'Precision',
-    value: '98.47%',
-    exact: '0.984658',
+    value: '98.55%',
+    exact: '0.985450',
     bg: 'bg-[#EEF6FB] border-[#B9D7EA]',
     valueColor: 'text-[#3C6C8D]',
   },
   {
     label: 'Recall',
-    value: '95.82%',
-    exact: '0.958244',
+    value: '95.47%',
+    exact: '0.954699',
     bg: 'bg-[#F7F4FC] border-[#D8CEEA]',
     valueColor: 'text-[#5A4982]',
   },
   {
     label: 'F1-Score',
-    value: '97.13%',
-    exact: '0.971271',
+    value: '96.98%',
+    exact: '0.969831',
     bg: 'bg-[#EFF8F2] border-[#C9E4D4]',
     valueColor: 'text-[#316849]',
   },
   {
     label: 'ROC-AUC',
-    value: '0.991',
-    exact: '0.990945',
+    value: '0.990',
+    exact: '0.990149',
     bg: 'bg-[#FDF1F5] border-[#F2C6D5]',
     valueColor: 'text-[#964A66]',
   },
@@ -67,7 +67,7 @@ export default function BestModelSection({ onOpenImage }) {
           eyebrow="Section 08 · Selected Production Model"
           icon={Trophy}
           title="Best Model – Random Forest"
-          subtitle="Selected automatically in the notebook by highest F1-Score (97.13%) and exported via joblib as best_electricity_demand_model.pkl."
+          subtitle="Selected automatically in the notebook by highest F1-Score (96.98%) and exported via joblib as best_electricity_demand_model.pkl."
         />
 
         {/* Elegant White Winner Spotlight Card */}
@@ -91,7 +91,7 @@ export default function BestModelSection({ onOpenImage }) {
             </div>
             <div className="inline-flex items-center gap-2 rounded-xl bg-[#EFF8F2] border border-[#C9E4D4] px-4 py-2.5 text-xs font-mono text-[#32694A] self-start">
               <CheckCircle2 className="h-4 w-4 text-[#4A8A67]" />
-              <span>15,682 / 16,392 test hours predicted accurately</span>
+              <span>14,126 / 14,796 test hours predicted accurately</span>
             </div>
           </div>
 
@@ -125,7 +125,7 @@ export default function BestModelSection({ onOpenImage }) {
                 <div>
                   <h3 className="text-lg font-bold text-[#34354A]">Confusion Matrix</h3>
                   <p className="text-xs text-[#6B6D85]">
-                    Random Forest test-set classification matrix (n = 16,392)
+                    Random Forest test-set classification matrix (n = 14,796)
                   </p>
                 </div>
                 <div className="inline-flex rounded-lg bg-[#F7F4FC] border border-[#E5DDF2] p-0.5 text-[11px]">
@@ -245,7 +245,7 @@ export default function BestModelSection({ onOpenImage }) {
             </div>
 
             <div className="mt-5 pt-4 border-t border-[#F0EAF7] flex items-center justify-between gap-2 text-xs text-[#54566E]">
-              <span>Only 187 false alarms across 3,867 normal-demand test hours (95.16% specificity).</span>
+              <span>Only 159 false alarms across 3,516 normal-demand test hours (95.48% specificity).</span>
               <button
                 type="button"
                 onClick={() =>
@@ -272,7 +272,7 @@ export default function BestModelSection({ onOpenImage }) {
                     <span>Feature Importance Chart</span>
                   </h3>
                   <p className="text-xs text-[#6B6D85] mt-0.5">
-                    Mean decrease in impurity across 200 Random Forest trees (Notebook Cell 60)
+                    Mean decrease in impurity across 200 Random Forest trees
                   </p>
                 </div>
 
@@ -391,12 +391,12 @@ export default function BestModelSection({ onOpenImage }) {
             </div>
 
             <p className="mt-4 pt-3.5 border-t border-[#F0EAF7] text-xs text-[#54566E] leading-relaxed">
-              Current <code className="font-mono text-[#32694A] bg-[#EFF8F2] px-1.5 py-0.5 rounded">demand_mw</code> (33.48%) and{' '}
-              <code className="font-mono text-[#32694A] bg-[#EFF8F2] px-1.5 py-0.5 rounded">generation_mw</code> (28.76%) together drive{' '}
-              <strong className="text-[#34354A]">62.24%</strong> of predictive power, followed by{' '}
-              <code className="font-mono text-[#3F6F90] bg-[#EEF6FB] px-1.5 py-0.5 rounded">india_bheramara_hvdc</code> (10.87%),{' '}
-              <code className="font-mono text-[#3F6F90] bg-[#EEF6FB] px-1.5 py-0.5 rounded">india_tripura</code> (4.99%), and{' '}
-              <code className="font-mono text-[#625288] bg-[#F7F4FC] px-1.5 py-0.5 rounded">gas</code> (4.73%).
+              Current <code className="font-mono text-[#32694A] bg-[#EFF8F2] px-1.5 py-0.5 rounded">demand_mw</code> (33.29%) and{' '}
+              <code className="font-mono text-[#32694A] bg-[#EFF8F2] px-1.5 py-0.5 rounded">generation_mw</code> (28.41%) together drive{' '}
+              <strong className="text-[#34354A]">61.69%</strong> of predictive power, followed by{' '}
+              <code className="font-mono text-[#3F6F90] bg-[#EEF6FB] px-1.5 py-0.5 rounded">india_bheramara_hvdc</code> (11.38%),{' '}
+              <code className="font-mono text-[#3F6F90] bg-[#EEF6FB] px-1.5 py-0.5 rounded">india_tripura</code> (4.92%), and{' '}
+              <code className="font-mono text-[#625288] bg-[#F7F4FC] px-1.5 py-0.5 rounded">gas</code> (4.55%).
             </p>
           </div>
         </div>

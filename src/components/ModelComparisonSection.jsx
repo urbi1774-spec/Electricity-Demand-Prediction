@@ -16,33 +16,33 @@ import { MODEL_COMPARISON } from '../data/projectData';
 const METRICS_BAR_DATA = [
   {
     metric: 'Accuracy',
-    'Logistic Regression': 93.11,
-    'Decision Tree': 90.63,
-    'Random Forest': 95.67,
+    'Logistic Regression': 92.68,
+    'Decision Tree': 89.73,
+    'Random Forest': 95.47,
   },
   {
     metric: 'Precision',
-    'Logistic Regression': 93.25,
-    'Decision Tree': 97.97,
-    'Random Forest': 98.47,
+    'Logistic Regression': 92.58,
+    'Decision Tree': 97.36,
+    'Random Forest': 98.55,
   },
   {
     metric: 'Recall',
-    'Logistic Regression': 98.08,
-    'Decision Tree': 89.60,
-    'Random Forest': 95.82,
+    'Logistic Regression': 98.28,
+    'Decision Tree': 88.95,
+    'Random Forest': 95.47,
   },
   {
     metric: 'F1-Score',
-    'Logistic Regression': 95.61,
-    'Decision Tree': 93.59,
-    'Random Forest': 97.13,
+    'Logistic Regression': 95.34,
+    'Decision Tree': 92.96,
+    'Random Forest': 96.98,
   },
   {
     metric: 'ROC-AUC',
-    'Logistic Regression': 98.28,
-    'Decision Tree': 91.79,
-    'Random Forest': 99.09,
+    'Logistic Regression': 98.07,
+    'Decision Tree': 90.60,
+    'Random Forest': 99.01,
   },
 ];
 
@@ -65,7 +65,7 @@ export default function ModelComparisonSection({ onOpenImage }) {
           eyebrow="Section 07 · Evaluation Benchmark"
           icon={Scale}
           title="Model Comparison"
-          subtitle="Head-to-head evaluation on the held-out chronological 20% test set (16,392 consecutive hourly predictions) using exact outputs from ds42222_(3).ipynb."
+          subtitle="Head-to-head evaluation on the held-out chronological 20% test set (14,796 strictly continuous hourly predictions)."
         />
 
         {/* Interactive Comparison Bar Chart + ROC Curve Comparison */}
@@ -81,7 +81,7 @@ export default function ModelComparisonSection({ onOpenImage }) {
                 </p>
               </div>
               <span className="rounded-full bg-[#EFF8F2] border border-[#C9E4D4] px-3 py-1 text-[11px] font-mono text-[#3B7354]">
-                Test Set: 16,392 hrs
+                Test Set: 14,796 hrs
               </span>
             </div>
 
@@ -125,7 +125,7 @@ export default function ModelComparisonSection({ onOpenImage }) {
                 <div>
                   <h3 className="text-lg font-bold text-[#34354A]">ROC Curve Comparison</h3>
                   <p className="text-xs text-[#6B6D85]">
-                    Direct output from notebook Cell 59
+                    Direct test-set ROC comparison across all 3 classifiers
                   </p>
                 </div>
                 <button
@@ -162,15 +162,15 @@ export default function ModelComparisonSection({ onOpenImage }) {
             <div className="mt-4 grid grid-cols-3 gap-2 text-center">
               <div className="rounded-xl bg-[#EFF8F2] border border-[#C9E4D4] p-2.5">
                 <span className="block text-[10px] text-[#4A6B59]">Random Forest</span>
-                <span className="font-mono text-sm font-bold text-[#356D4E]">0.991</span>
+                <span className="font-mono text-sm font-bold text-[#356D4E]">0.990</span>
               </div>
               <div className="rounded-xl bg-[#EEF6FB] border border-[#B9D7EA] p-2.5">
                 <span className="block text-[10px] text-[#4B6B82]">Logistic Reg.</span>
-                <span className="font-mono text-sm font-bold text-[#3F6F90]">0.983</span>
+                <span className="font-mono text-sm font-bold text-[#3F6F90]">0.981</span>
               </div>
               <div className="rounded-xl bg-[#FDF1F5] border border-[#F2C6D5] p-2.5">
                 <span className="block text-[10px] text-[#7D4B5E]">Decision Tree</span>
-                <span className="font-mono text-sm font-bold text-[#9A4E6A]">0.918</span>
+                <span className="font-mono text-sm font-bold text-[#9A4E6A]">0.906</span>
               </div>
             </div>
           </div>
@@ -185,7 +185,7 @@ export default function ModelComparisonSection({ onOpenImage }) {
                   Evaluation Metrics Summary Table
                 </h3>
                 <span className="text-xs font-mono text-[#6B6D85]">
-                  Ranked by F1-Score (Notebook Cell 54–57)
+                  Ranked by F1-Score (Held-Out Test Set)
                 </span>
               </div>
               <div className="overflow-x-auto">
@@ -275,7 +275,7 @@ export default function ModelComparisonSection({ onOpenImage }) {
                   <CheckCircle2 className="h-4 w-4 text-[#4A8A67] shrink-0" />
                   <span>
                     Per-Class Classification Report —{' '}
-                    <span className="text-[#5E4E84]">{selectedModel.model}</span> (Notebook Cell 53)
+                    <span className="text-[#5E4E84]">{selectedModel.model}</span>
                   </span>
                 </div>
                 <span className="font-mono text-[11px] text-[#6B6D85]">
@@ -285,7 +285,7 @@ export default function ModelComparisonSection({ onOpenImage }) {
               </div>
               <div className="grid sm:grid-cols-2 gap-3 text-xs font-mono">
                 <div className="rounded-xl bg-[#EEF6FB]/75 border border-[#B9D7EA] px-3.5 py-2.5 flex flex-col gap-1">
-                  <span className="text-[#3F6F90] font-semibold">Normal Demand (n=3,867)</span>
+                  <span className="text-[#3F6F90] font-semibold">Normal Demand (n=3,516)</span>
                   <span className="text-[#34354A]">
                     P: {selectedModel.classReport.normal.precision.toFixed(2)} · R:{' '}
                     {selectedModel.classReport.normal.recall.toFixed(2)} · F1:{' '}
@@ -293,7 +293,7 @@ export default function ModelComparisonSection({ onOpenImage }) {
                   </span>
                 </div>
                 <div className="rounded-xl bg-[#EFF8F2]/85 border border-[#C9E4D4] px-3.5 py-2.5 flex flex-col gap-1">
-                  <span className="text-[#32694A] font-semibold">High Demand (n=12,525)</span>
+                  <span className="text-[#32694A] font-semibold">High Demand (n=11,280)</span>
                   <span className="text-[#34354A]">
                     P: {selectedModel.classReport.high.precision.toFixed(2)} · R:{' '}
                     {selectedModel.classReport.high.recall.toFixed(2)} · F1:{' '}
@@ -365,12 +365,12 @@ export default function ModelComparisonSection({ onOpenImage }) {
                   selectedModel.confusionMatrix.tn + selectedModel.confusionMatrix.tp
                 ).toLocaleString()}
               </strong>{' '}
-              / 16,392 ({selectedModel.accuracy.toFixed(2)}%)
+              / 14,796 ({selectedModel.accuracy.toFixed(2)}%)
             </p>
           </div>
         </div>
 
-        {/* Training vs Testing Accuracy Card (New in ds42222_(3).ipynb Cells 54-55) */}
+        {/* Training vs Testing Accuracy Card */}
         <div className="glass-card rounded-2xl p-6">
           <div className="flex flex-wrap items-start justify-between gap-3 mb-5">
             <div>
@@ -379,7 +379,7 @@ export default function ModelComparisonSection({ onOpenImage }) {
                 <span>Training vs Testing Accuracy (Overfitting Check)</span>
               </h3>
               <p className="text-xs text-[#6B6D85] mt-0.5">
-                Comparing in-sample training fit (65,568 hrs) against chronological out-of-sample test performance (16,392 hrs) — Notebook Cells 54–55
+                Comparing in-sample training fit (59,180 hrs) against chronological out-of-sample test performance (14,796 hrs)
               </p>
             </div>
             <div className="flex items-center gap-2">
@@ -477,29 +477,29 @@ export default function ModelComparisonSection({ onOpenImage }) {
             <div className="lg:col-span-5 space-y-3 text-xs text-[#54566E] leading-relaxed">
               <div className="rounded-xl bg-[#EEF6FB]/75 border border-[#B9D7EA] p-3.5">
                 <p className="font-mono font-semibold text-[#3F6F90]">
-                  Logistic Regression · Gap: 1.89%
+                  Logistic Regression · Gap: 2.00%
                 </p>
                 <p className="mt-1">
-                  Train <strong className="text-[#34354A]">95.00%</strong> vs Test{' '}
-                  <strong className="text-[#34354A]">93.11%</strong> — very stable linear baseline with minimal variance.
+                  Train <strong className="text-[#34354A]">94.68%</strong> vs Test{' '}
+                  <strong className="text-[#34354A]">92.68%</strong> — very stable linear baseline with minimal variance.
                 </p>
               </div>
               <div className="rounded-xl bg-[#FDF1F5]/80 border border-[#F2C6D5] p-3.5">
                 <p className="font-mono font-semibold text-[#9A4E6A]">
-                  Decision Tree · Gap: 9.37% (Overfitting)
+                  Decision Tree · Gap: 10.27% (Overfitting)
                 </p>
                 <p className="mt-1">
                   Train <strong className="text-[#34354A]">100.00%</strong> vs Test{' '}
-                  <strong className="text-[#34354A]">90.63%</strong> — a single unpruned tree memorizes training noise and drops on unseen years.
+                  <strong className="text-[#34354A]">89.73%</strong> — a single unpruned tree memorizes training noise and drops on unseen years.
                 </p>
               </div>
               <div className="rounded-xl bg-[#EFF8F2]/85 border border-[#C9E4D4] p-3.5">
                 <p className="font-mono font-semibold text-[#32694A]">
-                  Random Forest · Gap: 4.33% (Best Generalization)
+                  Random Forest · Gap: 4.53% (Best Generalization)
                 </p>
                 <p className="mt-1">
                   Train <strong className="text-[#34354A]">100.00%</strong> vs Test{' '}
-                  <strong className="text-[#34354A]">95.67%</strong> — averaging 200 trees cuts single-tree error in half while achieving the top test score.
+                  <strong className="text-[#34354A]">95.47%</strong> — averaging 200 trees cuts single-tree error in more than half while achieving the top test score.
                 </p>
               </div>
             </div>

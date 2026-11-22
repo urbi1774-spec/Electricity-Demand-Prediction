@@ -15,9 +15,9 @@ const CONCLUSION_CARDS = [
     dot: 'bg-[#7EAED0]',
     title: 'What the Project Achieved',
     points: [
-      'Transformed 94,934 raw PGCB power grid logs (2015–2026) into 81,960 strictly aligned hourly records with 0 duplicates, 0 negative values, and 0 infinite values.',
+      'Transformed 94,934 raw PGCB power grid logs (2015–2026) into 73,976 strictly continuous 1-hour records with 0 duplicates, 0 negative values, and 0 infinite values.',
       'Formulated a leak-free next-hour high-demand classification task using the training-only 75th-percentile threshold (9,742 MW) and engineered calendar features (Hour, DayOfYear).',
-      'Built, evaluated, and benchmarked three complete scikit-learn Pipelines (including Train vs Test overfitting checks and per-class classification reports) on a chronological 16,392-hour test set, saving the winner via joblib.',
+      'Built, evaluated, and benchmarked three complete scikit-learn Pipelines (including Train vs Test overfitting checks and per-class classification reports) on a chronological 14,796-hour test set, saving the winner via joblib.',
     ],
   },
   {
@@ -26,9 +26,9 @@ const CONCLUSION_CARDS = [
     dot: 'bg-[#7BB897]',
     title: 'Best-Performing Model: Random Forest',
     points: [
-      'Outperformed both Logistic Regression and Decision Tree across Accuracy (95.67%), Precision (98.47%), F1-Score (97.13%), and ROC-AUC (0.991), correctly classifying 15,682 of 16,392 test hours.',
-      'Generalized significantly better than a single Decision Tree (95.67% vs 90.63% test accuracy) while slashing false positives by 79% compared to Logistic Regression (187 vs 889 false alarms).',
-      'Revealed interpretable grid drivers led by demand_mw (33.48%), generation_mw (28.76%), india_bheramara_hvdc (10.87%), india_tripura (4.99%), and gas (4.73%).',
+      'Outperformed both Logistic Regression and Decision Tree across Accuracy (95.47%), Precision (98.55%), F1-Score (96.98%), and ROC-AUC (0.990), correctly classifying 14,126 of 14,796 test hours.',
+      'Generalized significantly better than a single Decision Tree (95.47% vs 89.73% test accuracy) while slashing false positives by 82% compared to Logistic Regression (159 vs 889 false alarms).',
+      'Revealed interpretable grid drivers led by demand_mw (33.29%), generation_mw (28.41%), india_bheramara_hvdc (11.38%), india_tripura (4.92%), and gas (4.55%).',
     ],
   },
   {

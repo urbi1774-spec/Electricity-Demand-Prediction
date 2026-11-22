@@ -133,7 +133,7 @@ export default function EdaSection({ onOpenImage }) {
               eyebrow="Section 05 · Visual Analytics"
               icon={BarChart2}
               title="Exploratory Data Analysis (EDA)"
-              subtitle="All eight EDA visualizations computed directly from the cleaned 81,960-row Bangladesh electricity dataset — switch anytime between interactive Recharts and the exact Matplotlib/Seaborn notebook outputs."
+              subtitle="All eight EDA visualizations computed directly from the cleaned 73,976-row Bangladesh electricity dataset — switch anytime between interactive Recharts and the exact Matplotlib/Seaborn notebook outputs."
             />
           </div>
 
@@ -216,7 +216,7 @@ export default function EdaSection({ onOpenImage }) {
             plotSrc="/notebook-plots/hourly-demand.png"
             mode={chartMode}
             onZoom={onOpenImage}
-            insight="Demand reaches its lowest early-morning trough around 06:00 (7,845 MW) and surges during evening residential & commercial peak hours at 20:00–22:00 (10,409 MW peak), confirming why Hour is a key engineered feature."
+            insight="Demand dips overnight before climbing steadily through the day and surging during evening residential & commercial peak hours (20:00–22:00, peaking at 10,363 MW at 21:00), confirming why Hour is a key engineered feature."
           >
             <div className="h-64 sm:h-72 w-full">
               <ResponsiveContainer width="100%" height="100%">
@@ -315,7 +315,7 @@ export default function EdaSection({ onOpenImage }) {
             plotSrc="/notebook-plots/load-shedding-vs-demand.png"
             mode={chartMode}
             onZoom={onOpenImage}
-            insight="Load shedding shows a positive correlation (r = 0.36) with demand_mw and spikes sharply when demand surpasses 10,000–16,000 MW, making it a useful grid-stress indicator for high-demand classification."
+            insight="Load shedding shows a positive correlation (r = 0.35) with demand_mw and spikes sharply when demand surpasses 10,000–16,000 MW, making it a useful grid-stress indicator for high-demand classification."
           >
             <div className="h-64 sm:h-72 w-full">
               <ResponsiveContainer width="100%" height="100%">
@@ -394,7 +394,7 @@ export default function EdaSection({ onOpenImage }) {
             plotSrc="/notebook-plots/yearly-demand.png"
             mode={chartMode}
             onZoom={onOpenImage}
-            insight="Average demand more than doubled in a decade — climbing from 5,755 MW in 2015 to 11,845 MW in 2025 (+105.8%). The 2026 figure (10,028 MW) reflects winter/early-spring records only (Jan–Mar 8, 2026, 1,406 hours)."
+            insight="Average demand more than doubled in a decade — climbing from 5,664 MW in 2015 to 11,750 MW in 2025 (+107.5%). The 2026 figure (10,004 MW) reflects winter/early-spring records only (Jan–Mar 8, 2026, 1,272 continuous hours)."
           >
             <div className="h-64 sm:h-72 w-full">
               <ResponsiveContainer width="100%" height="100%">
@@ -435,7 +435,7 @@ export default function EdaSection({ onOpenImage }) {
             plotSrc="/notebook-plots/target-distribution.png"
             mode={chartMode}
             onZoom={onOpenImage}
-            insight="Using the leak-free training 75th percentile threshold (9,742 MW), the cleaned dataset splits into 64.62% Normal (52,963) vs 35.38% High Demand (28,997). Because demand grew strongly after 2022, the chronological 20% test set contains 76.41% High Demand (12,525 vs 3,867) — motivating class_weight='balanced' during training."
+            insight="Using the leak-free training 75th percentile threshold (9,742 MW) across the 73,976 strictly continuous hourly records, the dataset splits into 65.44% Normal (48,413) vs 34.56% High Demand (25,563). Because demand grew strongly after 2022, the chronological 20% test set contains 76.24% High Demand (11,280 vs 3,516) — motivating class_weight='balanced' during training."
           >
             <div className="grid sm:grid-cols-12 gap-4 items-center h-auto sm:h-72">
               <div className="sm:col-span-7 h-56 sm:h-64 w-full">
@@ -478,8 +478,8 @@ export default function EdaSection({ onOpenImage }) {
                   </div>
                 ))}
                 <div className="rounded-xl bg-[#F7F4FC] border border-[#E5DDF2] p-3 text-[11px] font-mono text-[#5C5E76]">
-                  <div>Train: 49,096 (0) · 16,472 (1)</div>
-                  <div className="mt-1 text-[#5E4E84] font-semibold">Test: 3,867 (0) · 12,525 (1)</div>
+                  <div>Train: 44,897 (0) · 14,283 (1)</div>
+                  <div className="mt-1 text-[#5E4E84] font-semibold">Test: 3,516 (0) · 11,280 (1)</div>
                 </div>
               </div>
             </div>
@@ -493,7 +493,7 @@ export default function EdaSection({ onOpenImage }) {
             plotSrc="/notebook-plots/correlation-heatmap.png"
             mode={chartMode}
             onZoom={onOpenImage}
-            insight="demand_mw correlates strongly with Next_Hour_Demand (r = 0.91) and High_Demand_Next_Hour (r = 0.79), followed by coal (0.68) and india_bheramara_hvdc (0.67). Notice generation_mw shows r = 0.01 linearly because of a single 64.5M MW raw logging typo — explaining why tree-based Random Forest outperforms linear models!"
+            insight="demand_mw correlates strongly with Next_Hour_Demand (r = 0.90) and High_Demand_Next_Hour (r = 0.78), followed by coal (0.68) and india_bheramara_hvdc (0.67). Notice generation_mw shows r = 0.01 linearly because of a single 64.5M MW raw logging typo — explaining why tree-based Random Forest outperforms linear models!"
           >
             <div className="space-y-3">
               <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[#62647C]">
@@ -504,7 +504,7 @@ export default function EdaSection({ onOpenImage }) {
                   </span>
                 ) : (
                   <span className="font-mono text-[#6B6D85]">
-                    Top pair: demand_mw × Next_Hour_Demand = 0.91
+                    Top pair: demand_mw × Next_Hour_Demand = 0.90
                   </span>
                 )}
               </div>

@@ -116,14 +116,14 @@ export default function HeroSection() {
                   <ShieldCheck className="h-3.5 w-3.5 text-[#498765]" />
                   <span>Best Accuracy</span>
                 </div>
-                <p className="mt-1 text-xl font-bold font-mono text-[#386E50]">95.67%</p>
+                <p className="mt-1 text-xl font-bold font-mono text-[#386E50]">95.47%</p>
               </div>
               <div className="rounded-xl border border-[#EAE4F3] bg-white p-3.5 shadow-xs">
                 <div className="flex items-center gap-1.5 text-xs text-[#6B6D85]">
                   <TrendingUp className="h-3.5 w-3.5 text-[#7A67A6]" />
                   <span>Best ROC-AUC</span>
                 </div>
-                <p className="mt-1 text-xl font-bold font-mono text-[#5F4E87]">0.991</p>
+                <p className="mt-1 text-xl font-bold font-mono text-[#5F4E87]">0.990</p>
               </div>
             </div>
           </div>
@@ -223,8 +223,8 @@ export default function HeroSection() {
                     <Clock className="h-3.5 w-3.5 text-[#B46482]" />
                     <span>Peak Hour</span>
                   </div>
-                  <p className="mt-1 text-base font-bold font-mono text-[#34354A]">20:00</p>
-                  <p className="text-[11px] text-[#964D68] font-mono">10,409 MW avg</p>
+                  <p className="mt-1 text-base font-bold font-mono text-[#34354A]">21:00</p>
+                  <p className="text-[11px] text-[#964D68] font-mono">10,363 MW avg</p>
                 </div>
                 <div className="rounded-xl bg-[#EFF8F2] border border-[#C9E4D4] p-3">
                   <div className="flex items-center gap-1.5 text-[11px] text-[#456B56]">
@@ -232,14 +232,14 @@ export default function HeroSection() {
                     <span>Winning Model</span>
                   </div>
                   <p className="mt-1 text-base font-bold text-[#34354A]">Random Forest</p>
-                  <p className="text-[11px] text-[#3B7354] font-mono">F1: 97.13%</p>
+                  <p className="text-[11px] text-[#3B7354] font-mono">F1: 96.98%</p>
                 </div>
                 <div className="rounded-xl bg-[#EEF6FB] border border-[#B9D7EA] p-3">
                   <div className="flex items-center gap-1.5 text-[11px] text-[#486B84]">
                     <ShieldCheck className="h-3.5 w-3.5 text-[#4F81A3]" />
                     <span>Validation</span>
                   </div>
-                  <p className="mt-1 text-base font-bold font-mono text-[#34354A]">16,392 hrs</p>
+                  <p className="mt-1 text-base font-bold font-mono text-[#34354A]">14,796 hrs</p>
                   <p className="text-[11px] text-[#4C7A9B] font-mono">Chronological 20%</p>
                 </div>
               </div>

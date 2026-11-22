@@ -93,7 +93,7 @@ export default function PreprocessingSection() {
               solar
             </code>
             ) and feature scaling are fitted exclusively on the first 80% chronological training split
-            (65,568 rows) before predicting the future 20% test horizon (16,392 rows).
+            (59,180 rows) before predicting the future 20% test horizon (14,796 rows).
           </div>
         </div>
       </div>
